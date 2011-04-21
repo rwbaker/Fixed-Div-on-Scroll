@@ -84,15 +84,17 @@
 		//Init; Saves layout if no JS avail
 		sidebar.setAttribute('class', 'absolute')
 		
+		sticky(340, sidebar);
 		
 		//Source: http://www.derekallard.com/blog/post/conditionally-sticky-sidebar
-
-		window.onscroll = function() {
-			//documentElement.scrollTo works for IE/Firefox (Gecko); self.pageYOffset for Chrome/Safari(Webkit))
-			if (document.documentElement.scrollTop > 340 || self.pageYOffset > 340) {
-				sidebar.setAttribute('class', 'fixed');
-			} else if (document.documentElement.scrollTop < 340 || self.pageYOffset < 340) {
-				sidebar.setAttribute('class', 'absolute');
+		function sticky(position, obj) {
+			window.onscroll = function() {
+				//documentElement.scrollTo works for IE/Firefox (Gecko); self.pageYOffset for Chrome/Safari(Webkit))
+				if (document.documentElement.scrollTop > position || self.pageYOffset > position) {
+					obj.setAttribute('class', 'fixed');
+				} else if (document.documentElement.scrollTop < position || self.pageYOffset < position) {
+					obj.setAttribute('class', 'absolute');
+				};
 			};
 		};
 		
