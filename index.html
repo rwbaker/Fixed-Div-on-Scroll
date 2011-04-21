@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>CARE Test</title>
+
+	<style type="text/css">
+	/* Spacing */
+		body				{margin:20px;}
+		hr					{margin:10px 0;}
+		#top				{height:300px; margin-bottom:20px;}
+		#container			{min-width:600px;}
+	/* Boxes */
+		.box,
+		#wrapper .content	{border:1px solid #ccc; background:#eee;}
+		#sidebar			{border:1px solid #aaa; background:#ccc;}
+		.content			{padding:10px;}
+	/* Grid & Spacing */
+		#wrapper			{float:left; width:100%;}
+			#wrapper-inner	{margin-right: 320px;}
+		#wrapper .content	{min-height:200px; }
+		#sidebar			{float:right; width:300px; margin-left:-300px; min-height:500px;}
+	/* Sidebar positioning */
+		.absolute			{position:absolute; top:340px; right:20px;}
+		.fixed				{position:fixed; top:20px; right:20px;}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<div id="top" class="box">
+
+		</div>
+
+		<div id="wrapper">
+			<div id="wrapper-inner">
+				<div class="content box">
+					.content
+				</div>
+
+				<hr>
+
+				<div class="content box">
+					.content
+				</div>
+				
+				<hr>
+
+				<div class="content box">
+					.content
+				</div>
+				
+				<hr>
+
+				<div class="content box">
+					.content
+				</div>
+
+				<hr>
+
+				<div class="content box">
+					.content
+				</div>
+				
+				<hr>
+
+				<div class="content box">
+					.content
+				</div>
+
+			</div>
+		</div>
+
+		<div id="sidebar">
+			<div class="content">
+				.sidebar
+			</div
+		</div>
+
+	</div>
+
+	<script type="text/javascript">
+		var sidebar = document.getElementById('sidebar');
+
+		//Init; Saves layout if no JS avail
+		sidebar.setAttribute('class', 'absolute')
+		
+		
+		//Source: http://www.derekallard.com/blog/post/conditionally-sticky-sidebar
+
+		window.onscroll = function() {
+			//documentElement.scrollTo works for IE/Firefox (Gecko); self.pageYOffset for Chrome/Safari(Webkit))
+			if (document.documentElement.scrollTop > 340 || self.pageYOffset > 340) {
+				sidebar.setAttribute('class', 'fixed');
+			} else if (document.documentElement.scrollTop < 340 || self.pageYOffset < 340) {
+				sidebar.setAttribute('class', 'absolute');
+			};
+		};
+		
+	</script>
+
+</body>
+</html>
