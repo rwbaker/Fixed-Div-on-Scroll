@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>CARE Test</title>
+	<title>Fixed Div on Scroll - Test</title>
 
 	<style type="text/css">
 	/* Spacing */
@@ -11,59 +11,60 @@
 		#top				{height:300px; margin-bottom:20px;}
 		#container			{min-width:600px;}
 	/* Boxes */
-		.box,
-		#wrapper .content	{border:1px solid #ccc; background:#eee;}
-		#sidebar			{border:1px solid #aaa; background:#ccc;}
-		.content			{padding:10px;}
+		.content			{border:1px solid #ccc; background:#eee;}
+		#sidebar-inner		{border:1px solid #aaa; background:#ccc;}
+		.content, 
+		#sidebar-inner		{padding:10px;}
 	/* Grid & Spacing */
 		#wrapper			{float:left; width:100%;}
 			#wrapper-inner	{margin-right: 320px;}
 		#wrapper .content	{min-height:200px; }
-		#sidebar			{float:right; width:300px; margin-left:-300px; min-height:500px;}
+		#sidebar			{float:right; width:300px; margin-left:-320px; position:relative;}
+			#sidebar-inner	{min-height:500px;}
 	/* Sidebar positioning */
-		.absolute			{position:absolute; top:340px; right:20px;}
-		.fixed				{position:fixed; top:20px; right:20px;}
+		.absolute			{position:absolute; width:280px;}
+		.fixed				{position:fixed; width:280px; top:20px;}
 	</style>
 </head>
 <body>
 	<div id="container">
-		<div id="top" class="box">
+		<div id="top" class="content">
 
 		</div>
 
 		<div id="wrapper">
 			<div id="wrapper-inner">
-				<div class="content box">
+				<div class="content">
 					.content
 				</div>
 
 				<hr>
 
-				<div class="content box">
-					.content
-				</div>
-				
-				<hr>
-
-				<div class="content box">
+				<div class="content">
 					.content
 				</div>
 				
 				<hr>
 
-				<div class="content box">
-					.content
-				</div>
-
-				<hr>
-
-				<div class="content box">
+				<div class="content">
 					.content
 				</div>
 				
 				<hr>
 
-				<div class="content box">
+				<div class="content">
+					.content
+				</div>
+
+				<hr>
+
+				<div class="content">
+					.content
+				</div>
+				
+				<hr>
+
+				<div class="content">
 					.content
 				</div>
 
@@ -71,15 +72,15 @@
 		</div>
 
 		<div id="sidebar">
-			<div class="content">
+			<div id="sidebar-inner">
 				.sidebar
-			</div
+			</div>
 		</div>
 
 	</div>
 
 	<script type="text/javascript">
-		var sidebar = document.getElementById('sidebar');
+		var sidebar = document.getElementById('sidebar-inner');
 
 		//Init; Saves layout if no JS avail
 		sidebar.setAttribute('class', 'absolute')
